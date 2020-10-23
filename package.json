@@ -1,0 +1,28 @@
+{
+  "name": "goit-js-hw-10-food-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abakarovmaks/goit-js-hw-10-food-service.git"
+  },
+  "keywords": [],
+  "author": "Abakarov Maksym abakarovmaks@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abakarovmaks/goit-js-hw-10-food-service/issues"
+  },
+  "homepage": "https://github.com/abakarovmaks/goit-js-hw-10-food-service#readme",
+  "dependencies": {
+    "joi": "^17.2.1",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
