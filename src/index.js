@@ -11,6 +11,7 @@ function createList(menuItems) {
     return foodCards(menuItems);
 }
 
+
 const bodyElem = document.querySelector('body');
 const inputElem = document.querySelector('#theme-switch-toggle');
 inputElem.addEventListener('change', clickOnInput);
