@@ -1,42 +1,38 @@
-import foodCards from "./templates/food-cards.hbs";
-import menuItems from "./menu.json";
+import foodCards from './templates/food-cards.hbs';
+import menuItems from './menu.json';
 import './styles.css';
 
 const listItems = document.querySelector('ul.js-menu');
-const listMarkup = createList(menuItems);
-
-listItems.insertAdjacentHTML('beforeend', listMarkup);
+const markup = createList(menuItems);
+listItems.insertAdjacentHTML('beforeend', markup);
 
 function createList(menuItems) {
-    return foodCards(menuItems);
+  return foodCards(menuItems);
 }
 
-
 const bodyElem = document.querySelector('body');
-const inputElem = document.querySelector('#theme-switch-toggle');
-inputElem.addEventListener('change', clickOnInput);
+const switchToggle = document.querySelector('#theme-switch-toggle');
+switchToggle.addEventListener('change', clickOnCheckbox);
 
-const Theme = {
+const THEME = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
 
-function clickOnInput(e) {
-    if (e.target.checked) {
-        bodyElem.classList.add(`${ Theme.DARK }`);
-        bodyElem.classList.remove(`${ Theme.LIGHT }`);
-        localStorage.setItem('theme', `${Theme.DARK}`);
-    }
-    else {
-        bodyElem.classList.add(`${ Theme.LIGHT }`);
-        bodyElem.classList.remove(`${ Theme.DARK }`);
-        localStorage.setItem('theme', `${ Theme.LIGHT }`);
-    }
-};
+function clickOnCheckbox(elem) {
+  if (elem.target.checked) {
+    bodyElem.classList.add(THEME.DARK);
+    bodyElem.classList.remove(THEME.LIGHT);
+  } else {
+    bodyElem.classList.add(THEME.LIGHT);
+    bodyElem.classList.remove(THEME.DARK);
+  }
+  localStorage.setItem('theme', bodyElem.classList);
+}
 
 const checkedTheme = localStorage.getItem('theme');
 
-if (checkedTheme === `${Theme.DARK}`) {
-    inputElem.checked = true;
-    bodyElem.classList.add(`${ Theme.DARK }`);
-};
+if (checkedTheme === THEME.DARK) {
+  switchToggle.checked = true;
+  bodyElem.classList.add(THEME.DARK);
+}
